@@ -1,0 +1,53 @@
+{
+  "name": "hello-secret",
+  "version": "0.0.1",
+  "description": "Hello world app for demo about Sealed Secrets",
+  "main": "index.js",
+  "scripts": {
+    "prettier": "prettier --config .prettierrc \"src/**/*.ts\" --write",
+    "lint": "eslint . --ext .ts",
+    "build": "npx tsc",
+    "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess 'node ./dist/server.js'",
+    "jasmine": "jasmine",
+    "test": "npm run build && npm run jasmine",
+    "start": "nodemon src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ernesgonzalez33/hello-secret.git"
+  },
+  "keywords": [
+    "secrets",
+    "hello",
+    "world"
+  ],
+  "author": "ernesgonzalez33",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ernesgonzalez33/hello-secret/issues"
+  },
+  "homepage": "https://github.com/ernesgonzalez33/hello-secret#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/jasmine": "^4.3.0",
+    "@types/node": "^18.7.13",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.34.0",
+    "@typescript-eslint/parser": "^5.34.0",
+    "eslint": "^8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "jasmine": "^4.3.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "nodemon": "^2.0.19",
+    "prettier": "^2.7.1",
+    "supertest": "^6.2.4",
+    "ts-node": "^10.9.1",
+    "tsc-watch": "^5.0.3",
+    "typescript": "^4.7.4"
+  }
+}
