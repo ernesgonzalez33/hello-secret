@@ -13,6 +13,11 @@ describe('Hello secret app testing', () => {
   it('should have hello and the secret in the response', async () => {
     const res = await req.get('/');
     const secret = process.env.SECRET;
-    expect(res.text).toEqual('Hello ' + secret);
+    if (secret != undefined){
+        expect(res.text).toEqual('Hello ' + secret);
+    } else {
+        expect(res.text).toEqual('Hello World');
+    }
+    
   });
 });
