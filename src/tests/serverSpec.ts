@@ -1,12 +1,10 @@
 import supertest from 'supertest';
 import app from '../server';
-import 'dotenv/config'
-import { response } from 'express';
+import 'dotenv/config';
 
 const req = supertest(app);
 
 describe('Hello secret app testing', () => {
-
   it('should give 200 as response code', async () => {
     const res = await req.get('/');
     expect(res.status).toBe(200);
@@ -15,6 +13,6 @@ describe('Hello secret app testing', () => {
   it('should have hello and the secret in the response', async () => {
     const res = await req.get('/');
     const secret = process.env.SECRET;
-    expect(res.text).toEqual("Hello " + secret);
+    expect(res.text).toEqual('Hello ' + secret);
   });
 });
