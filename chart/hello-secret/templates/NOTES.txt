@@ -1,0 +1,5 @@
+1. Test the application by running these commands:
+
+export URL=$(oc get route {{ include "hello-secret.fullname" . }} -o jsonpath='{"http://"}{.spec.host}')
+curl $URL
+

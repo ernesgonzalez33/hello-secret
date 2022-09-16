@@ -59,3 +59,17 @@ quay.io/ernesgonzalez33/hello-secret
 ```
 
 > **IMPORTANT:** If you built the image and change its name, you need to change it in the `podman run` command too.
+
+## How to install Sealed Secrets in OpenShift
+
+First of all, add the Sealed Secrets repo:
+
+```
+helm repo add sealed-secrets https://bitnami-labs.github.io/sealed-secrets
+```
+
+Install it by using the values file in this repo:
+
+```
+helm install sealed-secrets -f sealed-secrets/values.yaml sealed-secrets/sealed-secrets
+```
