@@ -1,5 +1,6 @@
-# hello-secret
-Hello world app for demo about Sealed Secrets
+# Hello Secret 
+
+Hello World app for demo about Sealed Secrets
 
 ## How to run locally
 
@@ -60,7 +61,13 @@ quay.io/ernesgonzalez33/hello-secret
 
 > **IMPORTANT:** If you built the image and change its name, you need to change it in the `podman run` command too.
 
-## How to install Sealed Secrets in OpenShift
+## Deploying in OpenShift
+
+### How to deploy Hello Secret in OpenShift
+
+Since the idea of this app is demonstrate how to encrypt secrets with Sealed Secrets in a `Values` file, you will need to install Sealed Secrets in your OpenShift cluster.
+
+### Install Sealed Secrets in OpenShift
 
 First of all, add the Sealed Secrets repo:
 
@@ -68,8 +75,42 @@ First of all, add the Sealed Secrets repo:
 helm repo add sealed-secrets https://bitnami-labs.github.io/sealed-secrets
 ```
 
+Create the project where you want to install it:
+
+```
+oc new-project sealed-secrets
+```
+
 Install it by using the values file in this repo:
 
 ```
 helm install sealed-secrets -f sealed-secrets/values.yaml sealed-secrets/sealed-secrets
+```
+
+### Encrypt your secret
+
+First, you will need to install kubeseal on your machine following these instructions:
+
+* [Homebrew](https://github.com/bitnami-labs/sealed-secrets#homebrew)
+* [MacPorts](https://github.com/bitnami-labs/sealed-secrets#macports)
+* [Nixpkgs](https://github.com/bitnami-labs/sealed-secrets#nixpkgs)
+* [Linux](https://github.com/bitnami-labs/sealed-secrets#linux)
+* [From Source](https://github.com/bitnami-labs/sealed-secrets#installation-from-source)
+
+Then, run the following command: 
+
+```bash
+echo -n <my-secret> | kubeseal --controller-name=sealed-secrets --controller-namespace=sealed-secrets --raw --from-file=/dev/stdin --scope=namespace-wide
+```
+
+> **NOTE:** The scope in the command needs to match with the selected in the Values file. For more info: https://github.com/bitnami-labs/sealed-secrets#scopes
+
+The output of that command will be your secret encrypted and you only need to paste it in the values file of the Hello Secret chart.
+
+### Deploy Hello Secret using the Helm Chart
+
+Run the following command:
+
+```bash
+helm install hello-secret ./chart/hello-secret/
 ```
