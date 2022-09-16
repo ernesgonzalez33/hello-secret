@@ -15,7 +15,11 @@ fullnameOverride: ""
 
 env:
   - name: SECRET
-    value: "Chart"
+    valueFrom:
+      secretKeyRef:
+        name: hello-secret
+        key: secret
+        optional: false
 
 serviceAccount:
   # Specifies whether a service account should be created
