@@ -21,6 +21,11 @@ env:
         key: secret
         optional: false
 
+sealedSecrets:
+  scope:
+    namespace: true
+  secret: AgBoPcQPbQRyB4+FtLcFfHQIPdQlHEjNu16pmr3ovxODP/JcjBxq9CaDJFpfxZzrhUeHys6eDfGv3OKDjSU9cp1Xy240rrGreGsj6AM7gJLq7gtm1EiCw6MniUBvdlXUhmRUWP+w7V2Ux68rG+ZAjYqE7dv0mmP3TS5hoAAjY95usM4xP9JqhCyOF+uhk03+8SyaO6kvMLOkRMMa6syvGlcdPIcbCeK/7crU5kfT611Wm4HrZ8NLm3vvlTBmUO89pLhMxoX+L7tXzxPpITrUdK1Xk6zmh9MAg1tpPBQ7TW6dvsx+ITKvPnvENZKKC07fE+F7KcILESXdE6GD+4vEv+iJ59xp/L3YEy9/oXJZDPhBiE6uOfUVGk2jfgPxDAh+KqAbYukIvpqkZaUyZ+G/MNAPwNDihRqGXZcoWg42CTCyrzvLDvra0lWyhyxxOZyQ0kElZGynvOjWPZsCX4BCJUhGWY62/ee0s6uX7xBpepyx+s4+RidD6EnbMXGxFQY3rRuULXkCD8Pm+j/oupEXV7R4W9IUHp69lPHEvtK4pULE/8FqVMpMcaBoV139VwjKe8UWXuen6VNiSt1E5FVxnlnHGF8JvLq5oIRycw1aVwmtcT3h6XsDfqYQ+JTzTd00FvRPh+8ZRPs/JKPWAEivkGt5DGOxSP6L0Z+ZEu9jhhm6FFOm1N0dbd/Ml+2U/9d7xsO1gfI6+t/mCuzFCCMU
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
