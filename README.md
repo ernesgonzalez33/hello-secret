@@ -114,3 +114,5 @@ Run the following command:
 ```bash
 helm install hello-secret ./chart/hello-secret/
 ```
+
+Testing integration tests
