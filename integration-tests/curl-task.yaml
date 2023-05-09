@@ -1,0 +1,13 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: curl
+spec:
+  params:
+    - default: ""
+      name: url
+      description: Hello Secret URL
+  steps:
+    - image: quay.io/redhat-appstudio/hacbs-test:stable
+      script: |
+        curl $(params.url)

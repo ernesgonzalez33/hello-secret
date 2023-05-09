@@ -1,0 +1,18 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: curl-pipeline
+spec:
+  params:
+    - description: "Hello Secret URL"
+      default: "https://hello-secret-llrb-ergonzale-tenant.apps.stone-prd-rh01.pg1f.p1.openshiftapps.com"
+      name: url
+      type: string
+  tasks:
+    - name: curl
+      taskRef:
+        name: curl
+        bundle: quay.io/ernesgonzalez33/curl-bundle:curl
+      params:
+        - name: url
+          value: "$(params.url)"
