@@ -1,6 +1,6 @@
 # Hello Secret 
 
-Hello World app for demo about Sealed Secrets
+Hello World app for demo about Sealed Secrets.
 
 ## How to run locally
 
