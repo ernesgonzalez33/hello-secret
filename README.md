@@ -59,7 +59,7 @@ podman run \
 quay.io/ernesgonzalez33/hello-secret
 ```
 
-> **IMPORTANT:** If you built the image and change its name, you need to change it in the `podman run` command too.
+> **IMPORTANT:** If you changed the name of the image when building it, you need to change it in the `podman run` command too.
 
 ## Deploying in OpenShift
 
