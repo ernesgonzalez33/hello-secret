@@ -1,14 +1,13 @@
-FROM node:20
+FROM registry.access.redhat.com/ubi9/nodejs-18:1-70
 
-# Create app directory
-WORKDIR /usr/src/app
+WORKDIR /opt/app-root
 
 COPY package*.json ./
 COPY tsconfig.json ./
 COPY . .
 
-RUN npm install typescript
-RUN npm run build
+RUN npm install --cache="/opt/app-root/npm-cache"
+RUN npm run build --cache="/opt/app-root/npm-cache"
 
 EXPOSE 3000
 
