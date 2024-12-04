@@ -6,7 +6,7 @@ Hello World app developed with Node for demo about Sealed Secrets.
 
 ### Set environment variables
 
-The application needs an environment variable called `SECRET` to work. You can create directly in your system by executing:
+The application needs an environment variable called `SECRET` to work. You can create it directly in your system by executing:
 
 ```bash
 export SECRET=<your-secret>
